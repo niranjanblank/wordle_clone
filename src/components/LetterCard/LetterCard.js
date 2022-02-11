@@ -1,7 +1,9 @@
+import classes from "./LetterCard.module.css"
+
 const LetterCard = () => {
     return (
-        <div>
-
+        <div className={`${classes.block} ${classes.empty}`}>
+            <p>A</p>
         </div>
     )
 }
