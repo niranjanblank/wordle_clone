@@ -1,28 +1,28 @@
+import { useContext } from "react"
+import boardContext from "../../context/boardContext"
+import Layer from "../Layer/Layer"
 import LetterCard from "../LetterCard/LetterCard"
 import classes from "./Board.module.css"
 const Board = () => {
-    const array = [
-        ['','','','',''],
-        ['','','','',''],
-        ['','','','',''],
-        ['','','','',''],
-        ['','','','',''],
-        ['','','','','']
-    ]
-    const board = array.map(arr=>{
-        return (
-            <div className={classes.layer}>
-                {
-                    arr.map(letter => {
-                        return (<LetterCard/>)
-                    })
-                }
-            </div>
-        )
-    })
+    const {data,setData}=useContext(boardContext)
+    console.log(data)
+    // const array = [
+    //     ['','','','',''],
+    //     ['','','','',''],
+    //     ['','','','',''],
+    //     ['','','','',''],
+    //     ['','','','',''],
+    //     ['','','','','']
+    // ]
+ 
     return (
         <div>
-            {board}
+            <Layer level="0"/>
+            <Layer level="1"/>
+            <Layer level="2"/>
+            <Layer level="3"/>
+            <Layer level="4"/>
+            <Layer level="5"/>
         </div>
     )
 }

@@ -17,21 +17,39 @@
 
 .filled{
     background-color: white;
-    border: solid 1px #d3d6da;
+    border: solid 2px #d3d6da;
     color: black;
 }
 
 .hint{
     background-color: #c9b458;
+    border: solid 2px #c9b458;
     color: white;
 }
 
 .wrong{
     background-color: #787c7e;
+    border: solid 2px #787c7e;
     color: white;
 }
 
 .correct{
     background-color: #6aaa64;
+    border: solid 2px #6aaa64;
     color: white;
+}
+
+.input {
+    border: 0px;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    background: transparent;
+}
+
+.input:focus {
+    outline: none;
 }
