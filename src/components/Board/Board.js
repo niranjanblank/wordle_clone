@@ -1,10 +1,13 @@
-import { useContext } from "react"
-import boardContext from "../../context/boardContext"
+
 import Layer from "../Layer/Layer"
 import LetterCard from "../LetterCard/LetterCard"
+import { useSelector } from "react-redux";
 import classes from "./Board.module.css"
 const Board = () => {
-    const {data,setData,randomWord}=useContext(boardContext)
+    // const {data,setData,randomWord}=useContext(boardContext)
+    const data= useSelector((state)=>state.board.board)
+    const randomWord = useSelector((state)=>state.board.randomWord)
+    console.log(data)
     console.log('guessed_word',data[0])
     console.log('random word',randomWord)
     // const array = [

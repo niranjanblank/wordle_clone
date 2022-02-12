@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react"
 import classes from "./LetterCard.module.css"
-
-const LetterCard = ({letter_type,data}) => {
+import { useDispatch, useSelector } from "react-redux";
+import { setBoard,setCurrentWord } from "../../store/boardSlice";
+const LetterCard = ({letter_type,letter_data,letter_index,level, letterNumber, setLetterNumber}) => {
+    const dispatch = useDispatch()
     const [letterClass,setLetterClass] = useState('')
-
+    const data= useSelector((state)=>state.board.board)
     useEffect(()=>{
-        // if(letter_type==="correct"){
-        //     setLetterClass(classes.correct)
-        // }
-        // else if(letter_type==="empty"){
-        //     setLetterClass(classes.empty)
-        // }
-        // else if(letter_type==="filled"){
-
-        // }
-        // else if()
         switch(letter_type){
             case "correct": 
                     setLetterClass(classes.correct)
@@ -37,10 +29,16 @@ const LetterCard = ({letter_type,data}) => {
         }
     
     },[letter_type])
-    
+    const handleKeyDown= (e)=> {
+        const letter = `${e.key}`
+        if (letter.length === 1 && letter.match(/[a-z]/i)){
+            setLetterNumber(`${e.key}`.toUpperCase())
+        }
+    }
     return (
         <div className={`${classes.block} ${letterClass}`}>
-            <p>{data?data:<input className={`${classes.input}`} type="text" maxLength={1}></input>}</p>
+            <p>{letter_data?letter_data:<input className={`${classes.input}`} onKeyDown={(e)=>{handleKeyDown(e)}} type="text" maxLength={1}></input>}</p>
+            {/* <p >{data}</p> */}
         </div>
     )
 }
