@@ -4,7 +4,8 @@ const boardContext = createContext({
     data: [   
     ],
     setData: ()=>{   
-    }
+    },
+    randomWord : []
 })
 
 export default boardContext;
