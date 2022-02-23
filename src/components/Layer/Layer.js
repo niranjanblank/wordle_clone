@@ -19,7 +19,11 @@ const Layer = ({level}) => {
     useEffect(()=> {
         //update the board value once last letter is typed
         const current_array = [letterOne,letterTwo,letterThree,letterFour,letterFive]
+        if (current_array.join()==current_word.join()){
+            console.log('You Won')
+        }
         updateBoard()
+        
     },[letterFive])
 
     //updates the board values
